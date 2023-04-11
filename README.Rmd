@@ -22,3 +22,9 @@ environments you may or may not have on your system. It installs
 its own isolated `mambaforge` `mamba` / `conda` package management
 system, its own `mamba` virtual environment, and its own copy of
 `mido`.
+
+## About the name
+Well ... `midiR` was taken. `pyramidi` uses `mido` to access MIDI
+files, and "MY-dough" is how I pronounce `mido`. `pyramidi` has
+many features I don't need. So ... `mydough` - only what I ...
+knead.

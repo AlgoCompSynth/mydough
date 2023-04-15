@@ -17,6 +17,12 @@ or may not have on your system. It installs its own isolated
 `mambaforge` `mamba` / `conda` package management system, its own
 `mamba` virtual environment, and its own copy of `mido`.
 
+## Getting started
+
+1.  Install `remotes` from CRAN.
+2.  `remotes::install_github("AlgoCompSynth/mydough")`.
+3.  `mydough::install_mido()`.
+
 ## Code of Conduct
 
 Please note that the mydough project is released with a [Contributor

@@ -7,9 +7,20 @@
 install_mido()
 }
 \value{
-the full path to the file
+a \code{reticulate} \code{py_config} object
 }
 \description{
-Creates a \code{mydough} conda environment and installs \code{mido} in it.
-\code{Miniconda} will be installed if necessary.
+Creates the \code{mydough} conda environment and installs Python,
+\code{numpy} and \code{mido} in it.
+}
+\details{
+If \code{Miniconda} isn't installed, \code{install_mido} installs it in the
+default location.
+}
+\examples{
+\dontrun{
+  config <- mydough::install_mido()
+  print(config)
+}
+
 }

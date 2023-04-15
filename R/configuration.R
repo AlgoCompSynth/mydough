@@ -43,3 +43,29 @@ install_mido <- function() {
   reticulate::py_discover_config()
 
 }
+
+#' @title Read MIDI file
+#' @name read_midi_file
+#' @description Reads a MIDI file using `mido`
+#' @export read_midi_file
+#' @importFrom reticulate use_condaenv
+#' @importFrom reticulate import
+#' @param midi_file a character string with the path to a MIDI file. Note that
+#' "~" does ***not*** work - you need to specify an absolute path!
+#' @returns the MidiFile object read from the given file
+#' @examples
+#' \dontrun{
+#'   reticulate::use_condaenv("mydough")
+#'   midi_file_object <- mydough::read_midi_file(
+#'     "/home/znmeb/Projects/eikosany/inst/Eikosany-MIDI-Files/eikosany-1-3-5-11.mid"
+#'   )
+#'   print(midi_file_object)
+#' }
+#'
+
+read_midi_file <- function(midi_file) {
+  reticulate::use_condaenv("mydough")
+  mido <- reticulate::import("mido")
+  midi_file_object <- mido$MidiFile(midi_file)
+  return(midi_file_object)
+}

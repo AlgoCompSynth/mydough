@@ -1,6 +1,9 @@
 mydough.Rproj text eof=lf
 *.xml text eof=lf
 *.yml text eof=lf
+*.Rmd text eof=lf
+*.md text eof=lf
+.Rbuildignore text eof=lf
 *.html binary
 *.css binary
 *.json binary

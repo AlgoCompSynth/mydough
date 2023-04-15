@@ -17,8 +17,15 @@ or may not have on your system. It installs its own isolated
 `mambaforge` `mamba` / `conda` package management system, its own
 `mamba` virtual environment, and its own copy of `mido`.
 
-## About the name
+## Getting started
 
-Well … `midiR` was taken. `pyramidi` uses `mido` to access MIDI files,
-and “MY-dough” is how I pronounce `mido`. `pyramidi` has many features I
-don’t need. So … `mydough` - only what I … knead.
+1.  Install `remotes` from CRAN.
+2.  `remotes::install_github("AlgoCompSynth/mydough")`.
+3.  `mydough::install_mido()`.
+
+## Code of Conduct
+
+Please note that the mydough project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.

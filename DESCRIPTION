@@ -12,6 +12,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
     devtools (>= 2.4.5),
-    pkgdown (>= 2.0.7)
+    knitr,
+    pkgdown (>= 2.0.7),
+    rmarkdown
 Imports: 
     reticulate (>= 1.28)
+VignetteBuilder: knitr

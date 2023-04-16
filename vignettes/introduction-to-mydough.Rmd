@@ -1,0 +1,25 @@
+---
+title: "Introduction to mydough"
+output: rmarkdown::html_vignette
+bibliography: mydough.bib
+vignette: >
+  %\VignetteIndexEntry{Introduction to mydough}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mydough)
+library(reticulate)
+install_mido()
+use_condaenv("mydough")
+```
+
+## References

@@ -19,26 +19,50 @@
 #'
 
 install_mido <- function() {
-  conda_installed <- try(reticulate::conda_binary(), silent = TRUE)
-  if (inherits(conda_installed, "try-error")) {
-    cat("\n'reticulate::conda_binary()' could not find 'conda'.\n")
-    cat("'Miniconda' will be installed in the default location.\n")
-    install_succeeded <- try(reticulate::install_miniconda(), silent = TRUE)
-    if (inherits(install_succeeded, "try-error")) {
+
+  # Install Miniconda if needed
+  conda_binary_path <-
+    try(reticulate::conda_binary(), silent = TRUE)
+  if (inherits(conda_binary_path, "try-error")) {
+    cat(
+      "\ncould not find 'conda'.\n",
+      "'Miniconda' will be installed in the default location.\n"
+    )
+
+    is_ok <-
+      try(reticulate::install_miniconda(), silent = TRUE)
+    if (inherits(is_ok, "try-error")) {
       stop("'Miniconda install failed - cannot continue!")
     }
     cat("\n'Miniconda' install successful.\n")
   }
 
-  conda_binary_path <- reticulate::conda_binary()
-  cat("\n'reticulate::conda_binary()' returned ", conda_binary_path, "\n")
+  # create 'mydough' conda environment if needed
+  mydough_path <-
+    try(reticulate::use_condaenv("mydough"), silent = TRUE)
+  if (inherits(mydough_path, "try-error")) {
+    cat(
+      "\ncould not find 'mydough' conda environment\n",
+      "'mydough' will be created."
+    )
+    is_ok <- try(
+      reticulate::conda_create(
+        envname = "mydough",
+        packages = c(
+         "python",
+         "numpy",
+         "mido"
+        )
+      ),
+      silent = TRUE
+    )
+    if (inherits(is_ok, "try-error")) {
+      stop("'mydough; create failed - cannot continue!")
+    }
+    cat("\n'mydough' create successful.\n")
+  }
 
-  cat("\nCreating 'mydough' conda environment\n")
-  reticulate::conda_create(envname = "mydough", packages = c(
-    "python",
-    "numpy",
-    "mido"
-  ))
+  # all good - return the Python configuration
   reticulate::use_condaenv("mydough")
   reticulate::py_discover_config()
 

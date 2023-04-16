@@ -24,7 +24,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
     
     <a class="navbar-brand me-2" href="index.html">mydough</a>
 
@@ -39,6 +39,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/introduction-to-mydough.html">Introduction to mydough</a>
+  </div>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -58,8 +64,14 @@
 <div class="section level2">
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
 </h2>
-<p>Algorithmic composition requires the ability to read and write MIDI files. While there are other R packages that read or write MIDI files, they add other capabilities that might not be necessary, like creating audio files or printable scores, read MIDI files but don’t write them, or require an external music engraving package like “MuseScore” or “lilypond”. <code>mydough</code> has a deliberately narrow scope - just read and write MIDI files!</p>
-<p><code>mydough</code> interfaces to the Python <code>mido</code> MIDI library via <code>reticulate</code>. <code>mydough</code> is completely independent of other Python environments you may or may not have on your system. It installs its own isolated <code>mambaforge</code> <code>mamba</code> / <code>conda</code> package management system, its own <code>mamba</code> virtual environment, and its own copy of <code>mido</code>.</p>
+<p>Algorithmic composition requires the ability to read and write Musical Instrument Digital Interface (MIDI) files (Back 1999). While there are other R packages that read or write MIDI files, they add other capabilities that might not be necessary, like creating audio files or printable scores, read MIDI files but don’t write them, or require an external music engraving package like “MuseScore” or “lilypond”.</p>
+<p>In addition, some of the other packages have an implicit or explicit focus on the standard Western 12-tone equal temperament scheme of tuning musical instruments. Microtonal composers like myself need to be able to express our scores in whatever music theory we find convenient. The MIDI standard now provides means for escaping the 12-tone equal tempered realm, and several physical synthesizers and many software ones can use these escapes.</p>
+<p><code>mydough</code> has a deliberately narrow scope - just read and write MIDI files! <code>mydough</code> interfaces to the Python <a href="https://mido.readthedocs.io/en/latest/index.html" class="external-link"><code>mido</code></a> (Mido Project 2023) MIDI library via <a href="https://rstudio.github.io/reticulate/" class="external-link"><code>reticulate</code></a> (Ushey, Allaire, and Tang 2023). <code>mydough</code> is completely independent of other Python environments you may or may not have on your system. It installs its own isolated <code>conda</code> virtual environment and its own copy of <code>mido</code>.</p>
+</div>
+<div class="section level2">
+<h2 id="about-the-name">About the name<a class="anchor" aria-label="anchor" href="#about-the-name"></a>
+</h2>
+<p>As I noted above, other R packages that read and write MIDI have features I don’t need, and I pronounce <code>mido</code> “MY-dough”. So here it is - <code>mido</code> without the stuff I don’t … knead.</p>
 </div>
 <div class="section level2">
 <h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
@@ -71,11 +83,27 @@
 <li>
 <code><a href="reference/install_mido.html">mydough::install_mido()</a></code>.</li>
 </ol>
+<p><code><a href="reference/install_mido.html">install_mido()</a></code> will install Miniconda in the system-dependent default location if it can’t find an existing <code>conda</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
 <p>Please note that the mydough project is released with a <a href="https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Back1999" class="csl-entry">
+Back, David. 1999. “Standard MIDI File Format, Updated — Music.mcgill.ca.” <a href="https://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html" class="external-link uri">https://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html</a>.
+</div>
+<div id="ref-midoMidoMIDI" class="csl-entry">
+Mido Project. 2023. “Mido - MIDI Objects for Python — Mido 1.2.10 Documentation — Mido.readthedocs.io.” <a href="https://mido.readthedocs.io/en/latest/index.html" class="external-link uri">https://mido.readthedocs.io/en/latest/index.html</a>.
+</div>
+<div id="ref-Ushey2023" class="csl-entry">
+Ushey, Kevin, JJ Allaire, and Yuan Tang. 2023. <em>Reticulate: Interface to ’Python’</em>. <a href="https://rstudio.github.io/reticulate/" class="external-link uri">https://rstudio.github.io/reticulate/</a>.
+</div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">

@@ -15,9 +15,12 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
     devtools (>= 2.4.5),
+    eikosany (>= 0.4.9.9000),
     knitr,
     pkgdown (>= 2.0.7),
     rmarkdown
 Imports: 
     reticulate (>= 1.28)
 VignetteBuilder: knitr
+Remotes:  
+    AlgoCompSynth/eikosany

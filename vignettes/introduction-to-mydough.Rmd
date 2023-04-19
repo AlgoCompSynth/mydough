@@ -1,7 +1,7 @@
 ---
 title: "Introduction to mydough"
 output: rmarkdown::html_vignette
-bibliography: mydough.bib
+bibliography: ../inst/REFERENCES.bib
 vignette: >
   %\VignetteIndexEntry{Introduction to mydough}
   %\VignetteEngine{knitr::rmarkdown}

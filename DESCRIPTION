@@ -20,7 +20,9 @@ Suggests:
     pkgdown (>= 2.0.7),
     rmarkdown
 Imports: 
-    reticulate (>= 1.28)
+    reticulate (>= 1.28),
+    Rdpack
+RdMacros: Rdpack
 VignetteBuilder: knitr
 Remotes:  
     AlgoCompSynth/eikosany

@@ -94,3 +94,37 @@ read_midi_file <- function(midi_file) {
   midi_file_object <- mido$MidiFile(midi_file)
   return(midi_file_object)
 }
+
+#' @title New MIDI file
+#' @name new_midi_file
+#' @description Create a new MidiFile object using `mido`
+#' @export new_midi_file
+#' @importFrom reticulate use_condaenv
+#' @importFrom reticulate import
+#' @importFrom Rdpack reprompt
+#' @param type integer, MIDI file type, default is 1
+#' @param ticks_per_beat integer, default is 480
+#' @returns an empty MidiFile object
+#' @details The "empty" MidiFile object from `mido` defaults to a type 1
+#' MIDI file with `ticks_per_beat` set to 480. From
+#' \insertCite{midoMidoMIDI}{mydough}, section 3 - "There are three types of
+#' MIDI files:
+#' \itemize{
+#' \item type 0 (single track): all messages are saved in one track
+#' \item type 1 (synchronous): all tracks start at the same time
+#' \item type 2 (asynchronous): each track is independent of the others."
+#' }
+#' @examples
+#' \dontrun{
+#'   print(midi_file_object <- mydough::new_midi_file())
+#' }
+#' @references
+#' \insertRef{midoMidoMIDI}{mydough}
+#'
+
+new_midi_file <- function(type = 1, ticks_per_beat = 480) {
+  reticulate::use_condaenv("mydough")
+  mido <- reticulate::import("mido")
+  midi_file_object <- mido$MidiFile(type, ticks_per_beat)
+  return(midi_file_object)
+}

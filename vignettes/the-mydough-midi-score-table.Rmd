@@ -1,0 +1,28 @@
+---
+title: "The `mydough` MIDI Score Table"
+output: rmarkdown::html_vignette
+bibliography: "../inst/REFERENCES.bib"
+vignette: >
+  %\VignetteIndexEntry{The `mydough` MIDI Score Table}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mydough)
+```
+## Why a score table?
+The main output of algorithmic composition processes is a score of some kind. If
+the composition is intended for human performers, the score would usually be some
+mix of conventional music notation and specialized composition-dependent notations.
+But for compositions intended to be rendeded by a computer or a collection of
+electronic instruments, the most "standard" way of defining a composition is a
+MIDI file. [@Back1999]
+## References

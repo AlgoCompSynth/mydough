@@ -20,13 +20,17 @@ Create a new MidiFile object using \code{mido}
 \details{
 The "empty" MidiFile object from \code{mido} defaults to a type 1
 MIDI file with \code{ticks_per_beat} set to 480. From
-\insertCite{midoMidoMIDI}{mydough}, section 3 - "There are three types of
-MIDI files:
+\insertCite{midoMidoMIDI}{mydough}, section 3.10.4, "File Types":
+
+"There are three types of MIDI files:
 \itemize{
 \item type 0 (single track): all messages are saved in one track
 \item type 1 (synchronous): all tracks start at the same time
 \item type 2 (asynchronous): each track is independent of the others."
 }
+
+See section 3.10.8, "Tempo and Beat Resolution", for details about how
+time is handled in MIDI files.
 }
 \examples{
 \dontrun{

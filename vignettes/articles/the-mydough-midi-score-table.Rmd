@@ -1,9 +1,9 @@
 ---
-title: "The `mydough` MIDI Score Table"
+title: "`mydough` MIDI Score Tables"
 output: rmarkdown::html_vignette
 bibliography: "../../inst/REFERENCES.bib"
 vignette: >
-  %\VignetteIndexEntry{The `mydough` MIDI Score Table}
+  %\VignetteIndexEntry{`mydough` MIDI Score Tables}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -17,13 +17,84 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(mydough)
+library(reticulate)
+use_condaenv("mydough")
+py_discover_config()
+
 ```
+
 ## Why a score table?
-The main output of algorithmic composition processes is a score of some kind. If
-the composition is intended for human performers, the score would usually be some
-mix of conventional music notation and specialized composition-dependent notations.
-But for compositions intended to be rendeded by a computer or a collection of
-electronic instruments, the most "standard" way of defining a composition is a
-MIDI file. [@Back1999]
+
+The ultimate output document from a composer, whether a fully-automated
+process or a human using automated processes, is a *score* of some kind.
+If the composition is intended for human performers, the score would
+usually be some mix of conventional music notation and specialized
+composition-dependent notations. But for compositions intended to be
+rendeded by a computer or a collection of electronic instruments, the
+most "standard" way of defining a composition is a MIDI file.
+[@Back1999]
+
+The *score table* (symbolically, a `score-table`) provides a format
+convenient for both humans and automated processes, which `mydough` can
+then automatically compile into a MIDI file.
+
+## Format of a `score_table`
+
+First of all, a `score_table` is a `data.table::data.table`
+[@Dowle2023]. `data.table`s provide rapid in-place data manipulation
+that the compilation process requires.
+
+Second, a composer usually thinks of events and time in musical terms -
+beats, bars, repeated sequences / arpeggios / loops, chords and so on. A
+MIDI file has a very precise way of dealing with time that is not
+particularly musician-friendly. See [@midoMidoMIDI], sections 3.10.7 and
+3.10.8 for the details.
+
+### Columns of a `score_table`
+
+-   track_number: integer. A MIDI file can have a number of tracks.
+
+-   event_type: character. What kind of event is this? (It's usually a
+    "note".)
+
+-   event_start_time: real, unit is beats
+
+-   event_duration: real, unit is beats. `mydough` will compute the end
+    time
+
+-   midi_channel: integer. On the synthesizer end, this is the channel
+    that the synth pays attention to. Channel numbers range from 1 to
+    16.\
+    \
+    Some synthesiers can be set to "omni" mode, where they listen to all
+    channels, or MIDI Polyphonic Expression (MPE) mode, where they use
+    multiple channels internally to perform different notes. This will
+    be important when we come to pitch bends.
+
+-   tempo: real, beats per minute. This can be changed on a "tempo"
+    event only. The value is ignored on "note" events.
+
+-   note_number: integer. For a note event, this is the MIDI note
+    number, a value between 0 and 127. To orient yourself, middle C is
+    note number 60 and A 440 Hz is note number 69.
+
+-   pitch_bend: real, unit is cents. This is how much up or down the
+    note should be bent from its standard value. Details:
+
+    1.  This value is only used for note events.
+
+    2.  For note events, speicfy a value of `NA` whenever there is no
+        pitch bend.
+
+    3.  Synthesizers often have a setting for the range of a pitch bend.
+        `mydough` assumes it is between -200 and +200 cents.
+
+    4.  Pitch bends apply to all the notes on the channel! So if you
+        have more than one note sounding at a time, for example, in a
+        chord, they either have to be sent to different synthesizers
+        listening on different channels, or to one synthesizer listening
+        in "omni" mode.
+
+-   velocity: integer. How hard to play the note (0 - 127).
 
 ## References

@@ -25,4 +25,5 @@ mix of conventional music notation and specialized composition-dependent notatio
 But for compositions intended to be rendeded by a computer or a collection of
 electronic instruments, the most "standard" way of defining a composition is a
 MIDI file. [@Back1999]
+
 ## References

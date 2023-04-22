@@ -2,8 +2,10 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
+  mydough-design-notes: mydough-design-notes.html
   introduction-to-mydough: introduction-to-mydough.html
-last_built: 2023-04-21T01:33Z
+  the-mydough-midi-score-table: the-mydough-midi-score-table.html
+last_built: 2023-04-22T02:06Z
 urls:
   reference: https://algocompsynth.github.io/mydough/reference
   article: https://algocompsynth.github.io/mydough/articles

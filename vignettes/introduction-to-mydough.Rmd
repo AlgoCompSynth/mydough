@@ -17,9 +17,10 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(mydough)
-library(reticulate)
 install_mido()
+library(reticulate)
 use_condaenv("mydough")
+
 ```
 
 ## References

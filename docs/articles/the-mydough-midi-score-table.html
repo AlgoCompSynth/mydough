@@ -41,8 +41,8 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/the-mydough-midi-score-table.html">mydough MIDI Score Tables</a>
     <a class="dropdown-item" href="../articles/introduction-to-mydough.html">Introduction to mydough</a>
+    <a class="dropdown-item" href="../articles/the-mydough-midi-score-table.html">mydough MIDI Score Tables</a>
   </div>
 </li>
       </ul>
@@ -72,7 +72,7 @@
       <img src="" class="logo" alt=""><h1>mydough MIDI Score Tables</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/AlgoCompSynth/mydough/blob/HEAD/vignettes/articles/the-mydough-midi-score-table.Rmd" class="external-link"><code>vignettes/articles/the-mydough-midi-score-table.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/AlgoCompSynth/mydough/blob/HEAD/vignettes/the-mydough-midi-score-table.Rmd" class="external-link"><code>vignettes/the-mydough-midi-score-table.Rmd</code></a></small>
       <div class="d-none name"><code>the-mydough-midi-score-table.Rmd</code></div>
     </div>
 
@@ -80,17 +80,18 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://algocompsynth.github.io/mydough/">mydough</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/" class="external-link">reticulate</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html" class="external-link">use_condaenv</a></span><span class="op">(</span><span class="st">"mydough"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_discover_config.html" class="external-link">py_discover_config</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; python:         /home/znmeb/.local/share/r-miniconda/envs/mydough/bin/python</span></span>
-<span><span class="co">#&gt; libpython:      /home/znmeb/.local/share/r-miniconda/envs/mydough/lib/libpython3.11.so</span></span>
-<span><span class="co">#&gt; pythonhome:     /home/znmeb/.local/share/r-miniconda/envs/mydough:/home/znmeb/.local/share/r-miniconda/envs/mydough</span></span>
-<span><span class="co">#&gt; version:        3.11.3 | packaged by conda-forge | (main, Apr  6 2023, 08:57:19) [GCC 11.3.0]</span></span>
-<span><span class="co">#&gt; numpy:          /home/znmeb/.local/share/r-miniconda/envs/mydough/lib/python3.11/site-packages/numpy</span></span>
+<span><span class="fu"><a href="../reference/install_mido.html">install_mido</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; python:         C:/Users/znmeb/AppData/Local/r-miniconda/envs/mydough/python.exe</span></span>
+<span><span class="co">#&gt; libpython:      C:/Users/znmeb/AppData/Local/r-miniconda/envs/mydough/python311.dll</span></span>
+<span><span class="co">#&gt; pythonhome:     C:/Users/znmeb/AppData/Local/r-miniconda/envs/mydough</span></span>
+<span><span class="co">#&gt; version:        3.11.3 | packaged by conda-forge | (main, Apr  6 2023, 08:50:54) [MSC v.1934 64 bit (AMD64)]</span></span>
+<span><span class="co">#&gt; Architecture:   64bit</span></span>
+<span><span class="co">#&gt; numpy:          C:/Users/znmeb/AppData/Local/r-miniconda/envs/mydough/Lib/site-packages/numpy</span></span>
 <span><span class="co">#&gt; numpy_version:  1.24.2</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; NOTE: Python version was forced by use_python function</span></span></code></pre></div>
+<span><span class="co">#&gt; NOTE: Python version was forced by use_python function</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/" class="external-link">reticulate</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html" class="external-link">use_condaenv</a></span><span class="op">(</span><span class="st">"mydough"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="why-a-score-table">Why a score table?<a class="anchor" aria-label="anchor" href="#why-a-score-table"></a>
 </h2>
@@ -101,8 +102,7 @@ performers, the score would usually be some mix of conventional music
 notation and specialized composition-dependent notations. But for
 compositions intended to be rendeded by a computer or a collection of
 electronic instruments, the most “standard” way of defining a
-composition is a MIDI file. <span class="citation">(Back
-1999)</span></p>
+composition is a MIDI file. <span class="citation">(<strong>Back1999?</strong>)</span></p>
 <p>The <em>score table</em> (symbolically, a <code>score-table</code>)
 provides a format convenient for both humans and automated processes,
 which <code>mydough</code> can then automatically compile into a MIDI
@@ -112,14 +112,14 @@ file.</p>
 <h2 id="format-of-a-score_table">Format of a <code>score_table</code><a class="anchor" aria-label="anchor" href="#format-of-a-score_table"></a>
 </h2>
 <p>First of all, a <code>score_table</code> is a
-<code><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table::data.table</a></code> <span class="citation">(Dowle and
-Srinivasan 2023)</span>. <code>data.table</code>s provide rapid in-place
-data manipulation that the compilation process requires.</p>
+<code><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table::data.table</a></code> <span class="citation">(<strong>Dowle2023?</strong>)</span>.
+<code>data.table</code>s provide rapid in-place data manipulation that
+the compilation process requires.</p>
 <p>Second, a composer usually thinks of events and time in musical terms
 - beats, bars, repeated sequences / arpeggios / loops, chords and so on.
 A MIDI file has a very precise way of dealing with time that is not
-particularly musician-friendly. See <span class="citation">(Mido Project
-2023)</span>, sections 3.10.7 and 3.10.8 for the details.</p>
+particularly musician-friendly. See <span class="citation">(<strong>midoMidoMIDI?</strong>)</span>, sections
+3.10.7 and 3.10.8 for the details.</p>
 <div class="section level3">
 <h3 id="columns-of-a-score_table">Columns of a <code>score_table</code><a class="anchor" aria-label="anchor" href="#columns-of-a-score_table"></a>
 </h3>
@@ -162,26 +162,9 @@ channels, or to one synthesizer listening in “omni” mode.</p></li>
 </ul>
 </div>
 </div>
-<div class="section level2 unnumbered">
-<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Back1999" class="csl-entry">
-Back, David. 1999. <span>“<span>S</span>tandard
-<span>M</span><span>I</span><span>D</span><span>I</span> File Format,
-Updated — Music.mcgill.ca.”</span> <a href="https://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html" class="external-link uri">https://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html</a>.
-</div>
-<div id="ref-Dowle2023" class="csl-entry">
-Dowle, Matt, and Arun Srinivasan. 2023. <em>Data.table: Extension of
-‘Data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table" class="external-link">https://CRAN.R-project.org/package=data.table</a>.
-</div>
-<div id="ref-midoMidoMIDI" class="csl-entry">
-Mido Project. 2023. <span>“<span>M</span>ido -
-<span>M</span><span>I</span><span>D</span><span>I</span>
-<span>O</span>bjects for <span>P</span>ython; <span>M</span>ido 1.2.10
-Documentation — Mido.readthedocs.io.”</span> <a href="https://mido.readthedocs.io/en/latest/index.html" class="external-link uri">https://mido.readthedocs.io/en/latest/index.html</a>.
-</div>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -196,7 +179,7 @@ Documentation — Mido.readthedocs.io.”</span> <a href="https://mido.readthedo
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
     </footer>

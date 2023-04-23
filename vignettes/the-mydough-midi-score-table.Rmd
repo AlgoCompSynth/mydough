@@ -17,9 +17,9 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(mydough)
+install_mido()
 library(reticulate)
 use_condaenv("mydough")
-py_discover_config()
 
 ```
 

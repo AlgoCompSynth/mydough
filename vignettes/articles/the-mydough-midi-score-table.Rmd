@@ -1,9 +1,9 @@
 ---
-title: "`mydough` MIDI Score Tables"
+title: "mydough MIDI Score Tables"
 output: rmarkdown::html_vignette
-bibliography: "../../inst/REFERENCES.bib"
+bibliography: "REFERENCES.bib"
 vignette: >
-  %\VignetteIndexEntry{`mydough` MIDI Score Tables}
+  %\VignetteIndexEntry{mydough MIDI Score Tables}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

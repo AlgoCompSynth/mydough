@@ -1,0 +1,54 @@
+---
+title: "Computing MIDI Pitch Bends from Note Numbers with Fractional Parts"
+output: rmarkdown::html_vignette
+bibliography: REFERENCES.bib
+vignette: >
+  %\VignetteIndexEntry{Computing MIDI Pitch Bends from Note Numbers with Fractional Parts}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mydough)
+```
+
+## Motivation
+
+As a microtonal algorithmic composer, I would like to be able to specify
+the pitch of a note via MIDI note numbers with a fractional part. For
+example, I can specify middle C with MIDI note number 60, and middle C
+sharp with MIDI note number 61.
+
+But suppose I want to compose in a quarter-tone scale - 24 notes to the
+octave. A convenient way to do this would be using MIDI note numbers
+with fractional parts.
+
+```{r}
+(quarter_tone_scale <- seq(60, 72, by = 1/2))
+
+```
+
+This is, of course, the easy part. But suppose I want to play the music
+on a synthesizer that accepts MIDI control messages. That's the subject
+of the next section.
+
+## MIDI, pitch bend, channels, omni mode and MIDI Polyphonic Expression
+
+Nearly all MIDI-controllable synthesizers will accept *pitch bend*
+messages. And nearly all of those will allow you to set the lower and
+upper limits of the pitch bend in semitones. This corresponds to the
+lower and upper limits of the pitch bend wheel.
+
+When the wheel is in the middle, the pitch bend is zero semitones. When
+it's at the top, it's the upper limit and when it's at the bottom, it's
+the lower limit. For our purposes, we want the range between the lower
+and upper limits to be as small as possible as long as it's at least one
+semitone. A range of -2 semitones to +2 semitones is usually available
+and may even be the default.

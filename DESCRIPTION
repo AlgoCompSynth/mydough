@@ -16,13 +16,15 @@ RoxygenNote: 7.2.3
 Suggests: 
     devtools (>= 2.4.5),
     eikosany (>= 0.4.9.9000),
-    knitr,
+    knitr (>= 1.42),
     pkgdown (>= 2.0.7),
-    rmarkdown
+    rmarkdown (>= 2.21)
 Imports: 
     reticulate (>= 1.28),
-    Rdpack
+    Rdpack (>= 2.4)
+Depends:
+    R (>= 4.3.0)
 RdMacros: Rdpack
 VignetteBuilder: knitr
-Remotes:  
+Remotes: 
     AlgoCompSynth/eikosany

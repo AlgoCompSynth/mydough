@@ -17,13 +17,10 @@ the MidiFile object read from the given file
 Reads a MIDI file using \code{mido}
 }
 \examples{
-\dontrun{
-  remotes::install_github("AlgoCompSynth/eikossany") # example MIDI files
   reticulate::use_condaenv("mydough")
-  midi_file_object <- mydough::read_midi_file(
-    system.file("Eikosany-MIDI-Files", "eikosany-5-7-9-11.mid", package = "eikosany")
-  )
+  midi_file_object <- mydough::read_midi_file(system.file(
+    "Eikosany-MIDI-Files", "eikosany-5-7-9-11.mid", package = "mydough"
+  ))
   print(midi_file_object)
-}
 
 }

@@ -15,8 +15,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
     devtools (>= 2.4.5),
-    eikosany (>= 0.4.9.9000),
-    knitr (>= 1.42),
+    knitr,
     pkgdown (>= 2.0.7),
     rmarkdown (>= 2.21)
 Imports: 
@@ -26,5 +25,3 @@ Depends:
     R (>= 4.3.0)
 RdMacros: Rdpack
 VignetteBuilder: knitr
-Remotes: 
-    AlgoCompSynth/eikosany
